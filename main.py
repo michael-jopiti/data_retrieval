@@ -1,5 +1,4 @@
 import sys
-import uniprot, kegg, rcsb, chembl, brenda
 
 def main(**kwargs):
     """
@@ -16,14 +15,19 @@ def main(**kwargs):
 
     match kwargs['-db']:
         case "UniProt":
+            import uniprot
             uniprot.fetch(kwargs.get('-met'))
         case "KEGG":
+            import kegg
             kegg.fetch(kwargs.get('-met'))
         case "RCSB":
+            import rcsb
             rcsb.fetch(kwargs.get('-met'))
         case "ChEMBL":
+            import chembl
             chembl.fetch(kwargs.get('-met'))
         case "BRENDA":
+            import brenda
             brenda.fetch(kwargs.get('-met'))
 
 if __name__ == "__main__":
